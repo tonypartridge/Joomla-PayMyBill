@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<component>
+  <table action="change" old_name="#__jzenrrr_paymybill" new_name="#__paymybill" table_name="#__paymybill" storage_engine="InnoDB" collation="utf8mb4_unicode_ci">
+    <field field_name="id" field_type="INT" field_length="11" is_autoincrement="1" description=""/>
+    <field action="change" field_name="order_id" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="product_name" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="payment_title" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="payment_method" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="mode" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="currency" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="status" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="payment" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="subtotal" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="trans_cost" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="trans_percent_cost" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="payment_type" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillFname" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillLname" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillAddr" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillCity" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillZip" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillState" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillCountry" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillEmail" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="BillPhone" field_type="VARCHAR" field_length="255" description=""/>
+    <field action="change" field_name="InvNr" field_type="VARCHAR" field_length="255" description=""/>
+    <field field_name="license" field_type="VARCHAR" field_length="255" description=""/>
+    <field field_name="attachments" field_type="VARCHAR" field_length="500" description=""/>
+    <field field_name="cdate" field_type="DATETIME" description=""/>
+    <field field_name="mdate" field_type="DATETIME" description=""/>
+  </table>
+</component>

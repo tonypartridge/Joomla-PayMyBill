@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" description="COM_PAYMYBILL_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        <field name="state"
+               type="status"
+               label="COM_PAYMYBILL_FILTER_STATE"
+               description="COM_PAYMYBILL_FILTER_STATE_DESC"
+               onchange="this.form.submit();"
+        >
+            <option value="">JOPTION_SELECT_PUBLISHED</option>
+        </field>
+
+        <field name="cdate.from" label="COM_PAYMYBILL_PAYMENTS_CDATE_FILTER_FROM" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_PAYMYBILL_PAYMENTS_CDATE_FILTER_FROM"/>
+<field name="cdate.to" label="COM_PAYMYBILL_PAYMENTS_CDATE_FILTER_TO" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_PAYMYBILL_PAYMENTS_CDATE_FILTER_TO"/>
+<field name="mdate.from" label="COM_PAYMYBILL_PAYMENTS_MDATE_FILTER_FROM" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_PAYMYBILL_PAYMENTS_MDATE_FILTER_FROM"/>
+<field name="mdate.to" label="COM_PAYMYBILL_PAYMENTS_MDATE_FILTER_TO" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_PAYMYBILL_PAYMENTS_MDATE_FILTER_TO"/>
+
+
+    </fields>
+
+    <fields name="list">
+
+        <field name="fullordering"
+               type="list"
+               label="COM_PAYMYBILL_LIST_FULL_ORDERING"
+               description="COM_PAYMYBILL_LIST_FULL_ORDERING_DESC"
+               onchange="this.form.submit();"
+               default="a.id DESC"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="a.id ASC">COM_PAYMYBILL_ID_ASC</option><option value="a.id DESC">COM_PAYMYBILL_ID_DESC</option><option value="a.order_id ASC">COM_PAYMYBILL_ORDER_ID_ASC</option><option value="a.order_id DESC">COM_PAYMYBILL_ORDER_ID_DESC</option><option value="a.status ASC">COM_PAYMYBILL_STATUS_ASC</option><option value="a.status DESC">COM_PAYMYBILL_STATUS_DESC</option><option value="a.payment ASC">COM_PAYMYBILL_PAYMENT_ASC</option><option value="a.payment DESC">COM_PAYMYBILL_PAYMENT_DESC</option><option value="a.BillFname ASC">COM_PAYMYBILL_BILLFNAME_ASC</option><option value="a.BillFname DESC">COM_PAYMYBILL_BILLFNAME_DESC</option><option value="a.BillLname ASC">COM_PAYMYBILL_BILLLNAME_ASC</option><option value="a.BillLname DESC">COM_PAYMYBILL_BILLLNAME_DESC</option><option value="a.BillAddr ASC">COM_PAYMYBILL_BILLADDR_ASC</option><option value="a.BillAddr DESC">COM_PAYMYBILL_BILLADDR_DESC</option><option value="a.BillEmail ASC">COM_PAYMYBILL_BILLEMAIL_ASC</option><option value="a.BillEmail DESC">COM_PAYMYBILL_BILLEMAIL_DESC</option><option value="a.BillPhone ASC">COM_PAYMYBILL_BILLPHONE_ASC</option><option value="a.BillPhone DESC">COM_PAYMYBILL_BILLPHONE_DESC</option><option value="a.InvNr ASC">COM_PAYMYBILL_INVNR_ASC</option><option value="a.InvNr DESC">COM_PAYMYBILL_INVNR_DESC</option><option value="a.cdate ASC">COM_PAYMYBILL_CDATE_ASC</option><option value="a.cdate DESC">COM_PAYMYBILL_CDATE_DESC</option><option value="a.mdate ASC">COM_PAYMYBILL_MDATE_ASC</option><option value="a.mdate DESC">COM_PAYMYBILL_MDATE_DESC</option>
+
+        </field>
+
+       <field name="limit"
+               type="limitbox"
+               label="COM_PAYMYBILL_LIST_LIMIT"
+               description="COM_PAYMYBILL_LIST_LIMIT_DESC"
+               class="input-mini"
+               default="25"
+               onchange="this.form.submit();"
+        />
+
+    </fields>
+
+</form>

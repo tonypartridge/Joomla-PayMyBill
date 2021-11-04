@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.2.0" client="site" method="upgrade">
+   <name>Pay My Bill SagePay</name>
+   <version>1.0.0</version>
+   <creationDate>August 2016</creationDate>
+   <author>SoftPill.Eu</author>
+   <authorEmail>mail@softpill.eu</authorEmail>
+   <authorUrl>www.softpill.eu</authorUrl>
+   <copyright>Copyright © 2016 SoftPill.Eu - All rights reserved.</copyright>
+   <license>GNU General Public License v2.0</license>
+   <description><![CDATA[
+    Thank you for installing the Pay My Bill Module onto your Joomla! website. Please proceed to:<br />
+    <a href="index.php?option=com_modules&filter_search=pay%20my%20bill">Activate the module on the "Module Manager" page</a></br>
+    <a href="http://www.softpill.eu/pay-my-bill" target="_blank">View Documentation</a>. 
+   ]]></description>
+	<files>
+		<filename module="mod_paymybill">mod_paymybill.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>LICENSE.txt</filename>
+    <folder>return</folder>
+    <folder>js</folder>
+		<folder>tmpl</folder>
+    <folder>css</folder>
+    <folder>methods</folder>
+    <folder>mailtpl</folder>
+    <folder>documents</folder>
+    <folder>functions</folder>
+    <folder>sql</folder>
+	</files>
+  
+  <install> <!-- Runs on install -->
+      <sql>
+          <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+      </sql>
+  </install>
+  <uninstall> <!-- Runs on uninstall -->
+      <sql>
+          <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+      </sql>
+  </uninstall>
+  <update>
+		<schemas>
+			<schemapath type="mysql">sql/updates</schemapath>
+		</schemas>
+	</update>
+  
+  <languages folder="site">
+    <language tag="en-GB">language/en-GB/en-GB.mod_paymybill.ini</language>
+  </languages>
+  
+  <config>
+		<fields name="params">
+      <fieldset name="basic">
+        <field name="pmblic" type="text" default="" label="PMB_MODULE_LIC" description="PMB_MODULE_LIC_DESCR" />
+        <field name="dchk" type="hidden" default="" /> 
+        <field name="product_name" type="text" default="My Product" label="PMB_MODULE_PRODUCT"	description="PMB_MODULE_PRODUCT_DESC" />
+        <field name="payment_type" type="radio" default="0" label="PMB_MODULE_PAYMENT_TYPE" description="PMB_MODULE_PAYMENT_TYPE_DESC">
+    			<option value="0">Fixed</option>
+    			<option value="1">Custom Input</option>
+    		</field>
+        <field name="payment" type="text" default="10.00" label="PMB_MODULE_PAYMENT"	description="PMB_MODULE_PAYMENT_DESC" />
+        <field name="min_payment" type="text" default="1.00" label="PMB_MODULE_MIN_PAYMENT"	description="PMB_MODULE_MIN_PAYMENT_DESC" />
+        <field name="amount_text" size="52" type="text" default="Payment" label="PMB_MODULE_AMOUNT_TEXT" description="PMB_MODULE_AMOUNT_TEXT_DESC" />
+        <field name="show_inv_field" type="radio" default="0" label="PMB_MODULE_SHOW_INV_FIELD"	description="PMB_MODULE_SHOW_INV_FIELD_DESC">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+        <field name="inv_text" type="text" default="Invoice Nr." label="PMB_MODULE_INV_TEXT" description="PMB_MODULE_INV_TEXT_DESC" />
+        <field name="show_tos" type="radio" default="0" label="PMB_MODULE_SHOW_TOS"	description="PMB_MODULE_SHOW_TOS_DESC">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+        <field name="tos_link" type="text" default="" size="52" label="PMB_MODULE_TOS_LINK"	description="PMB_MODULE_TOS_LINK_DESC" />
+        <field name="tos_text" type="text" default="Terms and Conditions" size="52" label="PMB_MODULE_TOS_TEXT"	description="PMB_MODULE_TOS_TEXT_DESC" />
+        <field name="default_country" type="text" default="GB" label="PMB_MODULE_COUNTRY"	description="PMB_MODULE_COUNTRY_DESC" />
+        <field name="payment_description" filter="raw" type="textarea" default="Product Description" cols="30" rows="8" label="PMB_MODULE_PAYMENT_DESCR"	description="PMB_MODULE_PAYMENT_DESCR_DESC" />
+        <field name="button_text" type="text" default="Click to Pay" size="52" label="PMB_MODULE_BUTTON_TEXT"	description="PMB_MODULE_BUTTON_TEXT_DESC" />
+        <field name="popup_width" type="text" default="450" label="PMB_MODULE_POPUP_WIDTH"	description="PMB_MODULE_POPUP_BUTTON_WIDTH_DESC" />
+        <field name="popup_height" type="text" default="500" label="PMB_MODULE_POPUP_HEIGHT"	description="PMB_MODULE_POPUP_HEIGHT_DESC" />
+        <field name="popup_description" filter="raw" type="textarea" default="Pop-up Product Description" cols="30" rows="8" label="PMB_MODULE_POPUP_DESCR"	description="PMB_MODULE_POPUP_DESCR_DESC" />
+        <field name="popup_button_text" type="text" default="Click to Pay" size="52" label="PMB_MODULE_POPUP_BUTTON_TEXT"	description="PMB_MODULE_POPUP_BUTTON_TEXT_DESC" />
+        <field name="popup_cancel_text" type="text" default="Cancel" size="52" label="PMB_MODULE_POPUP_CANCEL_TEXT"	description="PMB_MODULE_POPUP_CANCEL_TEXT_DESC" />
+        <field name="pay_btn_tpl" type="list" default="blue" label="PMB_MODULE_PAY_BTN_TPL"	description="PMB_MODULE_PAY_BTN_TPL_DESC">
+					<option value="blue">Blue</option>
+          <option value="blue2">Blue 2</option>
+          <option value="orange">Orange</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+				</field>
+        <field name="cancel_btn_tpl" type="list" default="red" label="PMB_MODULE_CANCEL_BTN_TPL"	description="PMB_MODULE_CANCEL_BTN_TPL_DESC">
+					<option value="blue">Blue</option>
+          <option value="blue2">Blue 2</option>
+          <option value="orange">Orange</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+				</field>
+        <field name="mail_pending" type="list" default="1" label="PMB_MODULE_MAIL_PENDING"	description="PMB_MODULE_MAIL_PENDING_DESC">
+					<option value="1">Administrator only</option>
+					<option value="2">Customer only</option>
+          <option value="3">Both</option>
+          <option value="0">None</option>
+				</field>
+        <field name="mail_success" type="list" default="3" label="PMB_MODULE_MAIL_SUCCESS"	description="PMB_MODULE_MAIL_SUCCESS_DESC">
+          <option value="1">Administrator only</option>
+					<option value="2">Customer only</option>
+          <option value="3">Both</option>
+          <option value="0">None</option>
+				</field>
+        <field name="mail_cancelled" type="list" default="3" label="PMB_MODULE_MAIL_CANCELLED"	description="PMB_MODULE_MAIL_CANCELLED_DESC">
+          <option value="1">Administrator only</option>
+					<option value="2">Customer only</option>
+          <option value="3">Both</option>
+          <option value="0">None</option>
+				</field>
+        <field name="attach" type="filelist" default="" label="PMB_MODULE_ATTACHMENT" description="PMB_MODULE_ATTACHMENT_DESC" directory="modules/mod_paymybill/documents" filter="" exclude="" stripext="" />
+        <field name="attach2" type="text" default="" size="52" label="PMB_MODULE_ATTACHMENT2"	description="PMB_MODULE_ATTACHMENT2_DESC" />
+        <field name="license_key" type="radio" default="0" label="PMB_MODULE_LICENSE_KEY"	description="PMB_MODULE_LICENSE_KEY_DESC">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+				</field>
+        <field type="spacer" label="&lt;a href='/modules/mod_paymybill/functions/export_orders.php'&gt;Export Orders&lt;/a&gt;" description="Export all orders in CSV format, Must be logged in as Super Administrator in website front-end!" />
+      </fieldset>
+      
+      <fieldset name="SAGEPAY">
+        <field type="hidden" name="pmb_start_sagepay" default="" />
+        <field type="text" name="sagepay_title" default="SagePay" size="50" label="PMB_MODULE_METHOD_TITLE" description="PMB_MODULE_METHOD_TITLE_DESC" />
+        <field name="sagepay_active" type="radio" default="1" label="PMB_MODULE_ACTIVE"	description="PMB_MODULE_ACTIVE_DESC">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+        <field type="text" name="sagepay_ordering" label="PMB_MODULE_ORDERING" default="1" description="PMB_MODULE_ORDERING_DESC" />
+        <field name="sagepay_currency" type="list" default="GBP" label="PMB_MODULE_CURRENCY" description="PMB_MODULE_CURRENCY_DESC">
+    			<option value="GBP">GBP</option>
+    			<option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+    		</field>
+        <field name="sagepay_mode" type="list" default="TEST" label="PMB_MODULE_TEST" description="PMB_MODULE_TEST_DESC">
+    			<option value="SIMULATOR">SIMULATOR</option>
+    			<option value="TEST">TEST</option>
+          <option value="LIVE">LIVE</option>
+    		</field>
+        <field name="sagepay_vendor_name" type="text" default="" size="52" label="PMB_SAGEPAY_MODULE_VENDOR_NAME"	description="PMB_SAGEPAY_MODULE_VENDOR_NAME_DESC" />
+        <field name="sagepay_vendor_email" type="text" default="" size="52" label="PMB_SAGEPAY_MODULE_VENDOR_EMAIL"	description="PMB_SAGEPAY_MODULE_VENDOR_DESC" />
+        <field name="sagepay_pass" type="password" default="" size="52" label="PMB_SAGEPAY_MODULE_PASSWORD"	description="PMB_SAGEPAY_MODULE_PASSWORD_DESC" />
+        <field name="sagepay_test_pass" type="password" default="" size="52" label="PMB_SAGEPAY_MODULE_TEST_PASSWORD"	description="PMB_SAGEPAY_MODULE_TEST_PASSWORD_DESC" />
+        <field name="ssagepay_sim_pass" type="password" default="" size="52" label="PMB_SAGEPAY_MODULE_SIMULATOR_PASSWORD"	description="PMB_SAGEPAY_MODULE_SIMULATOR_PASSWORD_DESC" />
+        <field name="sagepay_protocol" type="text" default="3.00" label="PMB_SAGEPAY_MODULE_PROTOCOL"	description="PMB_SAGEPAY_MODULE_PROTOCOL_DESC" />
+        <field name="sagepay_encryption" type="list" default="AES" label="PMB_SAGEPAY_MODULE_ENCRYPTION" description="PMB_SAGEPAY_MODULE_ENCRYPTION_DESC">
+    			<option value="AES">AES</option>
+    		</field>
+        <field name="sagepay_email_to" type="list" default="1" label="PMB_SAGEPAY_MODULE_EMAIL_TO" description="PMB_SAGEPAY_MODULE_EMAIL_TO_DESC">
+    			<option value="0">None</option>
+    			<option value="1">Customer and Vendor</option>
+          <option value="2">Only Vendor</option>
+    		</field>
+        <field type="text" name="sagepay_trans_cost" label="PMB_MODULE_TRANS_COST" default="0" description="PMB_MODULE_TRANS_COST_DESC" />
+        <field type="text" name="sagepay_trans_percent_cost" label="PMB_MODULE_TRANS_PERCENT_COST" default="0" description="PMB_MODULE_TRANS_PERCENT_COST_DESC" />
+        <field type="text" label="PMB_SAGEPAY_MODULE_MASTERCARD_TEST" default="5404000000000001" description="PMB_SAGEPAY_MODULE_MASTERCARD_TEST_DESC" />
+        <field type="hidden" name="pmb_end_sagepay" default="" />
+      </fieldset>
+      
+      <fieldset name="PAYPAL">
+        <field type="hidden" name="pmb_start_paypal" default="" />
+        <field type="text" name="paypal_title" default="PayPal" size="50" label="PMB_MODULE_METHOD_TITLE" description="PMB_MODULE_METHOD_TITLE_DESC" />
+        <field name="paypal_active" type="radio" default="0" label="PMB_MODULE_ACTIVE"	description="PMB_MODULE_ACTIVE_DESC">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+        <field type="text" name="paypal_ordering" label="PMB_MODULE_ORDERING" default="2" description="PMB_MODULE_ORDERING_DESC" />
+        <field type="text" name="paypal_user"  size="50" label="PMB_PAYPAL_MODULE_VENDOR_NAME" default="" description="PMB_PAYPAL_MODULE_VENDOR_NAME_DESC" />
+        <field type="text" name="paypal_user2"  size="50" label="PMB_PAYPAL_MODULE_VENDOR_NAME2" default="" description="PMB_PAYPAL_MODULE_VENDOR_NAME2_DESC" />
+        <field name="paypal_only_verified" type="list" default="0" label="PMB_PAYPAL_MODULE_ONLY_VER" description="PMB_PAYPAL_MODULE_ONLY_VER_DESC">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+    		</field>
+        <field type="text" name="paypal_trans_cost" label="PMB_MODULE_TRANS_COST" default="0" description="PMB_MODULE_TRANS_COST_DESC" />
+        <field type="text" name="paypal_trans_percent_cost" label="PMB_MODULE_TRANS_PERCENT_COST" default="0" description="PMB_MODULE_TRANS_PERCENT_COST_DESC" />
+        <field name="paypal_language" type="list" default="US" label="PMB_MODULE_LANGUAGE" description="PMB_MODULE_LANGUAGE_DESC">
+          <option value="AU">Australia</option>
+          <option value="AT">Austria</option>
+          <option value="BE">Belgium</option>
+          <option value="BR">Brazil</option>
+          <option value="CA">Canada</option>
+          <option value="CH">Switzerland</option>
+          <option value="CN">China</option>
+          <option value="DE">Germany</option>
+          <option value="ES">Spain</option>
+          <option value="GB">United Kingdom</option>
+          <option value="FR">France</option>
+          <option value="IT">Italy</option>
+          <option value="NL">Netherlands</option>
+          <option value="PL">Poland</option>
+          <option value="PT">Portugal</option>
+          <option value="RU">Russia</option>
+          <option value="US">United States</option>
+          <option value="da_DK">Danish (for Denmark only)</option>
+          <option value="he_IL">Hebrew (all)</option>
+          <option value="id_ID">Indonesian (for Indonesia only)</option>
+          <option value="ja_JP">Japanese (for Japan only)</option>
+          <option value="no_NO">Norwegian (for Norway only)</option>
+          <option value="pt_BR">Brazilian Portuguese (for Portugal and Brazil only)</option>
+          <option value="ru_RU">Russian (for Lithuania, Latvia, and Ukraine only)</option>
+          <option value="sv_SE">Swedish (for Sweden only)</option>
+          <option value="th_TH">Thai (for Thailand only)</option>
+          <option value="tr_TR">Turkish (for Turkey only)</option>
+          <option value="zh_CN">Simplified Chinese (for China only)</option>
+          <option value="zh_HK">Traditional Chinese (for Hong Kong only)</option>
+          <option value="zh_TW">Traditional Chinese (for Taiwan only)</option>
+    		</field>
+        <field name="paypal_currency" type="list" default="USD" label="PMB_MODULE_CURRENCY" description="PMB_MODULE_CURRENCY_DESC">
+    			<option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="AUD">AUD</option>
+          <option value="BRL">BRL</option>
+          <option value="CAD">CAD</option>
+          <option value="CZK">CZK</option>
+          <option value="DKK">DKK</option>
+          <option value="HKD">HKD</option>
+          <option value="HUF">HUF</option>
+          <option value="ILS">ILS</option>
+          <option value="JPY">JPY</option>
+          <option value="MYR">MYR</option>
+          <option value="MXN">MXN</option>
+          <option value="NOK">NOK</option>
+          <option value="NZD">NZD</option>
+          <option value="PHP">PHP</option>
+          <option value="PLN">PLN</option>
+          <option value="RUB">RUB</option>
+          <option value="SGD">SGD</option>
+          <option value="SEK">SEK</option>
+          <option value="CHF">CHF</option>
+          <option value="TWD">TWD</option>
+          <option value="THB">THB</option>
+          <option value="TRY">TRY</option>
+    		</field>
+        <field name="paypal_mode" type="list" default="TEST" label="PMB_MODULE_TEST" description="PMB_MODULE_TEST_DESC">
+    			<option value="TEST">TEST</option>
+          <option value="LIVE">LIVE</option>
+    		</field>
+        <field type="hidden" name="pmb_end_paypal" default="" />
+      </fieldset>
+
+      <fieldset	name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+    </fields>
+  </config>
+</extension>

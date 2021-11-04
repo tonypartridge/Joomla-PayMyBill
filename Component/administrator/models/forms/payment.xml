@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+    <field name="payment_title" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_PAYMENT_TITLE" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_PAYMENT_TITLE" hidden="true" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_PAYMENT_TITLE"/>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="order_id" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_ORDER_ID" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_ORDER_ID" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_ORDER_ID"/>
+    <field name="product_name" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_PRODUCT_NAME" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_PRODUCT_NAME" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_PRODUCT_NAME"/>
+    <field name="payment_method" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_PAYMENT_METHOD" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_PAYMENT_METHOD" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_PAYMENT_METHOD"/>
+    <field name="mode" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_MODE" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_MODE" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_MODE"/>
+    <field name="currency" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_CURRENCY" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_CURRENCY" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_CURRENCY"/>
+    <field name="status" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_STATUS" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_STATUS" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_STATUS"/>
+    <field name="payment" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_PAYMENT" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_PAYMENT" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_PAYMENT"/>
+    <field name="subtotal" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_SUBTOTAL" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_SUBTOTAL" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_SUBTOTAL"/>
+    <field name="trans_cost" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_TRANS_COST" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_TRANS_COST" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_TRANS_COST"/>
+    <field name="trans_percent_cost" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_TRANS_PERCENT_COST" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_TRANS_PERCENT_COST" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_TRANS_PERCENT_COST"/>
+    <field name="payment_type" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_PAYMENT_TYPE" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_PAYMENT_TYPE" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_PAYMENT_TYPE"/>
+    <field name="BillFname" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLFNAME" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLFNAME" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLFNAME"/>
+    <field name="BillLname" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLLNAME" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLLNAME" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLLNAME"/>
+    <field name="BillAddr" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLADDR" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLADDR" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLADDR"/>
+    <field name="BillCity" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLCITY" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLCITY" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLCITY"/>
+    <field name="BillZip" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLZIP" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLZIP" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLZIP"/>
+    <field name="BillState" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLSTATE" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLSTATE" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLSTATE"/>
+    <field name="BillCountry" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLCOUNTRY" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLCOUNTRY" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLCOUNTRY"/>
+    <field name="BillEmail" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLEMAIL" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLEMAIL" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLEMAIL"/>
+    <field name="BillPhone" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLPHONE" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_BILLPHONE" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_BILLPHONE"/>
+    <field name="InvNr" filter="safehtml" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_INVNR" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_INVNR" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_INVNR"/>
+    <field name="license" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_LICENSE" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_LICENSE" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_LICENSE"/>
+    <field name="attachments" type="text" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_ATTACHMENTS" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_ATTACHMENTS" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_ATTACHMENTS"/>
+    <field name="cdate" class="inputbox" format="%Y-%m-%d %H:%M:%S" timeformat="12" filter="server_utc" translateformat="false" showtime="true" singleheader="false" todaybutton="false" weeknumbers="false" filltable="false" type="calendar" default="0" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_CDATE" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_CDATE" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_CDATE"/>
+    <field name="mdate" class="inputbox" format="%Y-%m-%d %H:%M:%S" timeformat="12" filter="server_utc" translateformat="false" showtime="true" singleheader="false" todaybutton="false" weeknumbers="false" filltable="false" type="calendar" default="0" label="COM_PAYMYBILL_FORM_LBL_PAYMENT_MDATE" description="COM_PAYMYBILL_FORM_DESC_PAYMENT_MDATE" hint="COM_PAYMYBILL_FORM_LBL_PAYMENT_MDATE"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>
