@@ -157,6 +157,7 @@
         <field type="text" name="sagepay_trans_cost" label="PMB_MODULE_TRANS_COST" default="0" description="PMB_MODULE_TRANS_COST_DESC" />
         <field type="text" name="sagepay_trans_percent_cost" label="PMB_MODULE_TRANS_PERCENT_COST" default="0" description="PMB_MODULE_TRANS_PERCENT_COST_DESC" />
         <field type="text" label="PMB_SAGEPAY_MODULE_MASTERCARD_TEST" default="5404000000000001" description="PMB_SAGEPAY_MODULE_MASTERCARD_TEST_DESC" />
+          <field name="successMenuItem" type="menuitem" default="45" label="Success Page" description="This is where the users will be redirected too." />
         <field type="hidden" name="pmb_end_sagepay" default="" />
       </fieldset>
       

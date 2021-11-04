@@ -153,20 +153,4 @@ else
   $message='<h1><font color="red"><strong>'.JText::_( 'PMB_MODULE_ORDER_CANCELED' ).'</strong></font></h1>';
   $message2='alert(\''.str_replace("'","\\'",JText::_( 'PMB_MODULE_ORDER_CANCELED' )).'\');';
 }
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-  <meta http-equiv="content-type" content="text/html; charset=windows-1250">
-  <meta name="generator" content="PSPad editor, www.pspad.com">
-  <title></title>
-  </head>
-  <body>
-    <?php echo $message;?>
-    <a href="http://<?php echo $_SERVER['HTTP_HOST']?>">Click Here</a> to renturn to our website.
-    <script type="text/javascript">
-    <?php echo $message2;?>
-    window.location='http://<?php echo $_SERVER['HTTP_HOST']?>';
-    </script>
-  </body>
-</html>
+$app->redirect(JRoute::_('index.php?Itemid=' . $params->get('successMenuItem', 101)));

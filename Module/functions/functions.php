@@ -183,7 +183,7 @@ class PMBFunctions
       $body=str_ireplace("{license}","",$body);
     }
     $mailer->addRecipient($send_to);
-    $mailer->setSubject('Order: '.$details['order_id'].' '.ucfirst($type).' on '.$_SERVER['HTTP_HOST']);
+    $mailer->setSubject('A payment for the amount: ' . $details['payment'] . ' and reference: '. $details['InvNr'] . ' has been made');
     $mailer->isHTML(true);
     $mailer->setBody($body);
     $mailer->Send();
