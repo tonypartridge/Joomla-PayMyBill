@@ -303,7 +303,7 @@ function pmbGetPopupContent(obj)
     content+='<label for="payment_amount'+obj.id+'" class="pmb_popup_lbl">'+obj.amount_text+'</label>';
     content+='</td>';
     content+='<td>';
-    content+='<input type="text" class="pmb_popup_payment_input" name="payment_amount" id="payment_amount'+obj.id+'" value="'+obj.min_payment+'" />';
+    content+='<input type="text" class="pmb_popup_payment_input" name="payment_amount" id="payment_amount'+obj.id+'" value="" />';
     content+='<span class="pmb_popup_curr_sym">'+currency_str+'</span>';
     content+='</td>';
     content+='</tr>';

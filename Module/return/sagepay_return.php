@@ -153,4 +153,5 @@ else
   $message='<h1><font color="red"><strong>'.JText::_( 'PMB_MODULE_ORDER_CANCELED' ).'</strong></font></h1>';
   $message2='alert(\''.str_replace("'","\\'",JText::_( 'PMB_MODULE_ORDER_CANCELED' )).'\');';
 }
-$app->redirect(JRoute::_('index.php?Itemid=' . $params->get('successMenuItem', 101)));
+$mItemId    = empty($params['successMenuItem']) ? 101 : $params['successMenuItem'];
+$app->redirect(str_replace('modules/mod_paymybill/return/', '', JRoute::_('index.php?Itemid=' . $mItemId)));

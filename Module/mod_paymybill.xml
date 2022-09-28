@@ -52,6 +52,7 @@
   <config>
 		<fields name="params">
       <fieldset name="basic">
+          <field name="confirmationEmail" type="email" default="" label="Admin Confrimation Email Address:" description="This is where confirmed payments will be emailed."/>
         <field name="pmblic" type="text" default="" label="PMB_MODULE_LIC" description="PMB_MODULE_LIC_DESCR" />
         <field name="dchk" type="hidden" default="" /> 
         <field name="product_name" type="text" default="My Product" label="PMB_MODULE_PRODUCT"	description="PMB_MODULE_PRODUCT_DESC" />
@@ -154,7 +155,10 @@
     			<option value="1">Customer and Vendor</option>
           <option value="2">Only Vendor</option>
     		</field>
-        <field type="text" name="sagepay_trans_cost" label="PMB_MODULE_TRANS_COST" default="0" description="PMB_MODULE_TRANS_COST_DESC" />
+
+          <field name="sagepay_email_message" filter="raw" type="textarea" default="" cols="30" rows="8" label="SagePay Email Message" description="This email message will be shown at the top of the sagepay confirmation email" showon="sagepay_email_to:1"/>
+
+          <field type="text" name="sagepay_trans_cost" label="PMB_MODULE_TRANS_COST" default="0" description="PMB_MODULE_TRANS_COST_DESC" />
         <field type="text" name="sagepay_trans_percent_cost" label="PMB_MODULE_TRANS_PERCENT_COST" default="0" description="PMB_MODULE_TRANS_PERCENT_COST_DESC" />
         <field type="text" label="PMB_SAGEPAY_MODULE_MASTERCARD_TEST" default="5404000000000001" description="PMB_SAGEPAY_MODULE_MASTERCARD_TEST_DESC" />
           <field name="successMenuItem" type="menuitem" default="45" label="Success Page" description="This is where the users will be redirected too." />

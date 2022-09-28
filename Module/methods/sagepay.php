@@ -5,7 +5,7 @@
  * @subpackage	Pay My Bill Module
  * @version     1.0.0
  * @description Pay My Bill Module
- * @copyright	  Copyright © 2016 - All rights reserved.
+ * @copyright	  Copyright ï¿½ 2016 - All rights reserved.
  * @license		  GNU General Public License v2.0
  * @author		  SoftPill.Eu
  * @author mail	mail@softpill.eu
@@ -118,6 +118,7 @@ class PMBsagepay
     $currency=$params->get('sagepay_currency');
     $encryption=$params->get('sagepay_encryption');
     $email_to=$params->get('sagepay_email_to');
+    $email_to_message=$params->get('sagepay_email_message');
     $protocol=$params->get('sagepay_protocol');
     
     $details['subtotal']=$details['payment'];
@@ -171,6 +172,10 @@ class PMBsagepay
     } else {
     	$strPost=$strPost . "&SendEMail=2";
     }
+    if(!empty($email_to_message)) {
+        $strPost=$strPost . "&EmailMessage=" . $email_to_message;
+    }
+
     if ($vendor_email <> "")
   	    $strPost=$strPost . "&VendorEMail=" . $vendor_email;
     }

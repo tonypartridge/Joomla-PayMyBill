@@ -397,7 +397,7 @@ function pmbGetPopupContent(obj)
         content+='<div class="pmb_popup_row row"><div class="col-md-12"><div class="form-group">';
         content+='<label for="payment_amount'+obj.id+'" class="pmb_popup_lbl">'+obj.amount_text+'</label>';
         content+='<div class="formControls">';
-        content+='<input type="text" class="pmb_popup_payment_input" name="payment_amount" id="payment_amount'+obj.id+'" value="'+obj.min_payment+'" />';
+        content+='<input type="text" class="pmb_popup_payment_input" name="payment_amount" id="payment_amount'+obj.id+'" value="" />';
         content+='<span class="pmb_popup_curr_sym">'+currency_str+'</span>';
         content+='</div>';
         content+='</div>';

@@ -48,7 +48,7 @@ class PMBFunctions
     }
     if($type=='success')
     {
-      $status='<strong><font color="#4CC417">'.ucfirst($type).'</font></strong>';
+      $status       = '<strong><font color="#4CC417">'.ucfirst($type).'</font></strong>';
     }
     if($type=='cancelled')
     {
@@ -67,19 +67,19 @@ class PMBFunctions
       $body=str_ireplace("{invoice_text}",$params['inv_text'],$body);
       $body=str_ireplace("{invoice}",'N/A',$body);
     }
-    $body=str_ireplace("{price}",$details['payment']." ".$details['currency'],$body);
-    $body=str_ireplace("{fname}",$details['BillFname'],$body);
-    $body=str_ireplace("{lname}",$details['BillLname'],$body);
-    $body=str_ireplace("{adress}",$details['BillAddr'],$body);
-    $body=str_ireplace("{city}",$details['BillCity'],$body);
-    $body=str_ireplace("{zip}",$details['BillZip'],$body);
-    $body=str_ireplace("{state}",$details['BillState'],$body);
-    $body=str_ireplace("{country}",$country_codes_arr[$details['BillCountry']],$body);
-    $body=str_ireplace("{email}",$details['BillEmail'],$body);
-    $body=str_ireplace("{phone}",$details['BillPhone'],$body);
-    $body=str_ireplace("{method}",$payment_method,$body);
-    $body=str_ireplace("{mode}",$details['mode'],$body);
-    $body=str_ireplace("{sitelink}","http://".$_SERVER['HTTP_HOST'],$body);
+    $body = str_ireplace("{price}",$details['payment']." ".$details['currency'],$body);
+    $body = str_ireplace("{fname}",$details['BillFname'],$body);
+    $body = str_ireplace("{lname}",$details['BillLname'],$body);
+    $body = str_ireplace("{adress}",$details['BillAddr'],$body);
+    $body = str_ireplace("{city}",$details['BillCity'],$body);
+    $body = str_ireplace("{zip}",$details['BillZip'],$body);
+    $body = str_ireplace("{state}",$details['BillState'],$body);
+    $body = str_ireplace("{country}",$country_codes_arr[$details['BillCountry']],$body);
+    $body = str_ireplace("{email}",$details['BillEmail'],$body);
+    $body = str_ireplace("{phone}",$details['BillPhone'],$body);
+    $body = str_ireplace("{method}",$payment_method,$body);
+    $body = str_ireplace("{mode}",$details['mode'],$body);
+    $body = str_ireplace("{sitelink}","http://".$_SERVER['HTTP_HOST'],$body);
     
     $mailer = JFactory::getMailer();
     $config = JFactory::getConfig();
@@ -88,10 +88,11 @@ class PMBFunctions
     $config->get( 'fromname' ) );
     $mailer->setSender($sender);
     $send_to=array();
+
     //get where to send mails
     if($type=='pending' && $params['mail_pending']==1)
     {
-      $send_to[]=$config->get( 'mailfrom' );
+      $send_to[]=$params['confirmationEmail'];
     }
     if($type=='pending' && $params['mail_pending']==2)
     {
@@ -99,13 +100,13 @@ class PMBFunctions
     }
     if($type=='pending' && $params['mail_pending']==3)
     {
-      $send_to[]=$config->get( 'mailfrom' );
+      $send_to[]=$params['confirmationEmail'];
       $send_to[]=$details['BillEmail'];
     }
     
     if($type=='success' && $params['mail_success']==1)
     {
-      $send_to[]=$config->get( 'mailfrom' );
+      $send_to[]=$params['confirmationEmail'];
     }
     if($type=='success' && $params['mail_success']==2)
     {
@@ -113,13 +114,13 @@ class PMBFunctions
     }
     if($type=='success' && $params['mail_success']==3)
     {
-      $send_to[]=$config->get( 'mailfrom' );
+      $send_to[]=$params['confirmationEmail'];
       $send_to[]=$details['BillEmail'];
     }
     
     if($type=='cancelled' && $params['mail_cancelled']==1)
     {
-      $send_to[]=$config->get( 'mailfrom' );
+      $send_to[]=$params['confirmationEmail'];
     }
     if($type=='cancelled' && $params['mail_cancelled']==2)
     {
@@ -127,7 +128,7 @@ class PMBFunctions
     }
     if($type=='cancelled' && $params['mail_cancelled']==3)
     {
-      $send_to[]=$config->get( 'mailfrom' );
+      $send_to[]=$params['confirmationEmail'];
       $send_to[]=$details['BillEmail'];
     }
     //add attachments
