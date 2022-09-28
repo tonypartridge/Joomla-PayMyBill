@@ -249,6 +249,9 @@ class PMBFunctions
     {
       $license_code=$this->getNewLicenseKey();
     }
+
+    // TODO refactor to modern Joomla! Database insert
+    $dateTimeTransaction    = date('Y-m-d H:i:s');
     $db=JFactory::getDBO();
     $query="
     insert into #__paymybill set
@@ -276,8 +279,8 @@ class PMBFunctions
     `BillPhone`='".$db->escape($details['BillPhone'])."',
     `InvNr`='".$db->escape($details['InvNr'])."',
     `license`='".$db->escape($license_code)."',
-    `cdate`='".time()."',
-    `mdate`='".time()."'
+    `cdate`='".$dateTimeTransaction."',
+    `mdate`='".$dateTimeTransaction."'
     ";
     $db->setQuery($query);
     $db->query();
